@@ -1,7 +1,7 @@
 # Fixes & Mitigations
 
 ## 1) TWAP / Median oracle
-Use a time‑weighted or median price instead of spot price to reduce 1‑block manipulation.
+Use a time‑weighted or median price instead of spot price to reduce 1‑block manipulation. This repo now uses a **cumulative‑price TWAP** with observations.
 
 ## 2) Circuit breaker on price jumps
 Reject borrows if price moves more than a configured threshold within a single update window.

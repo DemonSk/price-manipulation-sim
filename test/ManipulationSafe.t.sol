@@ -15,6 +15,10 @@ contract ManipulationSafeTest is Test {
         amm = new AMM(1_000e18, 1_000e18);
         oracle = new Oracle(amm);
         lend = new LendingSafe(oracle);
+
+        // seed observations
+        vm.warp(block.timestamp + 300);
+        oracle.update();
     }
 
     function test_manipulationBlockedByTwapAndBreaker() public {
@@ -24,7 +28,7 @@ contract ManipulationSafeTest is Test {
         amm.swapYforX(900e18);
 
         // move time forward and update oracle (twap moves partially)
-        vm.warp(block.timestamp + 60);
+        vm.warp(block.timestamp + 300);
         oracle.update();
 
         vm.expectRevert("price jump");

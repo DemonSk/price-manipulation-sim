@@ -5,7 +5,7 @@ A focused demo of **price‑oracle manipulation** attacks in DeFi. Uses a toy AM
 ## ✅ Scenarios
 - One‑block price manipulation to bypass collateral checks
 - Oracle lag exploitation (spot vs TWAP)
-- Mitigation using TWAP + circuit breaker
+- Mitigation using cumulative TWAP + circuit breaker
 
 ## Structure
 - **src/** — toy AMM + lending market (intentionally vulnerable)
@@ -19,7 +19,7 @@ forge test -vv
 
 ## Goals
 Show how manipulation works in practice and how to mitigate it:
-- TWAP / median oracles
+- Cumulative TWAP / median oracles
 - Circuit breakers on large deltas
 - Minimum liquidity thresholds
 
